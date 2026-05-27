@@ -18,6 +18,10 @@ class Dashboard(BaseModel):
     )
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, default="")
+    is_default = models.BooleanField(
+        default=False, 
+        help_text="Indicates if this is the system-seeded starter dashboard."
+    )
     created_by = models.ForeignKey(
         User,
         on_delete=models.SET_NULL,
